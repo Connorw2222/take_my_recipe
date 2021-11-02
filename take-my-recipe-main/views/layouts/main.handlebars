@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take My Recipe</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin uk-navbar-transparent" uk-navbar>
+        <!-- Navigation on the left side -->
+        <div class="uk-navbar-left">
+            <!-- Logo/Home button -->
+            <a class="uk-navbar-item uk-logo" href="/">
+                <img src="/images/logo.png" class="uk-center" alt="Take My Recipe logo"
+                    uk-tooltip="title: Go back to the homepage; pos: bottom" />
+            </a>
+              {{#if loggedIn}}
+                <span class="">Hi {{ firstname }},</span>
+                {{else}}
+                {{/if}}
+        </div>
+
+        <!-- Navigation on the right side -->
+        <div class="uk-navbar-right">
+            <!-- Login/Signup page -->
+            <div class="uk-padding-small">
+                {{#if loggedIn}}
+               <a href="/dashboard" id="dashboard">
+                    <button class="category-buttons uk-button uk-button-primary">My Dashboard</button>
+                </a>
+                <a id="logout">
+                    <button class="category-buttons uk-button uk-button-danger">Logout</button>
+                </a>
+                {{else}}
+                <a class="uk-button uk-button-default uk-button-small" href="/login" uk-icon="sign-in"
+                    uk-tooltip="title: Login; pos: bottom"></a>
+                <a class="uk-button uk-button-primary uk-button-small" href="/signup" uk-icon="user"
+                    uk-tooltip="title: Signup; pos: bottom"></a>
+                {{/if}}
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="uk-container" id="toTop">
+        {{{ body }}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="uk-container uk-position-relative">
+        <div class="uk-flex">
+            <div class="uk-margin-left footer-content">
+                <p>Built with love by the <span
+                        uk-tooltip="Connor Werth, Jaya Gudipalli, Shital Chaudhary"><u>team</u></span> |
+                     &copy; 2021. All Rights Reserved. </p>
+            </div>
+            <div class="uk-margin-left footer-content">
+                <p><a href="https://github.com/CHAUDHARYS1/take-my-recipe" target="_blank"></span><u>See code in
+                            GitHub</u></a> <span uk-icon="github"></span></p>
+            </div>
+            <div class="uk-margin-left footer-content">
+                <p>Take My Recipe Web App <span uk-icon="happy"></span></p> </span>
+            </div>
+        </div>
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.4/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>

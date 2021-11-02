@@ -1,0 +1,25 @@
+<div>
+    <h2>My Dashboard</h2>
+    <p>Recipes created by you will show up here in your dashboard. You can edit or delete your recipe.</p>
+</div>
+<div class="add-recipe-container">
+    <a href="/addRecipe" class="uk-button uk-button-primary" id="add-recipe" uk-tooltip="Add a recipe"><span
+            uk-icon="plus"></span></a>
+</div>
+<!-- Recipe Grid -->
+<div class="uk-text-center">
+    <div class="uk-flex-left" uk-grid>
+        {{#each recipes as |recipe|}}
+        <div class="uk-card uk-card-default uk-margin-left uk-card-hover"
+            style="padding-left: 0px !important; border-radius:10px!important">
+            {{> recipe-info recipe }}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+ <div class="uk-padding-small">
+ <a href="/" id="HomePage">
+  <button class="category-buttons uk-align-center uk-button uk-button-primary">Back to Home</button>
+                </a>
+</div>
